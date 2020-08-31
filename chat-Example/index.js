@@ -2,7 +2,7 @@ var app = require('express')();
 var http = require('http').createServer(app);
 
 app.get('/', (req, res) => {
-    res.send('<h1>HelloWold!</h1>')
+    res.sendFile(__dirname + "/index.html");
 });
 
 http.listen(3000, () => {
