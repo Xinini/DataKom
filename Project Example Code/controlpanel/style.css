@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#view {
+    width: 100%;
+    height: 88%;
+}
+
+
+#main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: wrap;
+    background-color: rgba(248, 248, 248, 1.0);
+}
+
+#top-bar {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(254, 254, 254, 1.0);
+    border-bottom: 1px solid rgba(240, 240, 240, 1.0);
+}
+
+#top-bar-l {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-bar-ul {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 -10% 0 0;
+}
+
+.top-bar-dropdown {
+    width: auto;
+    height: auto;
+    margin: 0 4%;
+}
+
+.dropdown-content {
+    display: none;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: wrap;
+    position: absolute;
+    background-color: #FFBB00;
+    z-index: 1;
+}
+
+.dropdown-content > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "verdana";
+    font-weight: 800;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.dropdown-content > a:hover {
+    background-color: white;
+    color: #FFBB00;
+}
+
+#org-dropdown-content {
+    width: auto;
+    height: auto;
+    margin: 0.15% 0;
+}
+
+#org-dropdown-content > a {
+    width: 100%;
+    height: 50%;
+    padding: 7.5% 5%;
+}
+
+#org-dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+#top-bar-ul > div > a {
+    display: inline-block;
+    border-radius: 2px;
+    text-decoration: none;
+    margin: 0 2.5%;
+    font-family: "verdana";
+    font-size: 16px;
+    font-weight: 900;
+    transition: 0.15s;
+    padding: 5px 8px;
+    color: #055DB4;
+    background-color: transparent;
+}
+
+#top-bar-ul > div > a:hover {
+    background-color: transparent;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+    color: #055DB4;
+    transition: 0.1s;
+}
+
+#a-active {
+    -webkit-transform: scale(1.11);
+    -moz-transform: scale(1.11);
+    -ms-transform: scale(1.11);
+    -o-transform: scale(1.11);
+    transform: scale(1.11);
+    transition: 0.1s;
+}
+
+
+#logo-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 2.5% 25% 0 0;
+}
+
+#logo-txt {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: "arial";
+    font-size: 28px;
+    color: white;
+    font-weight: 900;
+    margin: 0 -10%;
+}
+
+#logo-img {
+    width: 100%;
+    height: 60%;
+}
+
+#logo-img:hover {
+    cursor: pointer;
+}
+
+#top-bar-c {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-bar-r {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-bar-name {
+    width: 55%;
+    height: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "verdana";
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    background-color: #055DB4;
+    border-radius: 2px;
+}
+
+#top-bar-name:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+
+}
+
+/* Login Page */
+
+#login-card {
+    width: 45%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+    background-color: rgba(252, 252, 252, 1.0);
+    border-radius: 2px;
+    border: 2px solid rgba(150, 150, 150, 0.1);
+    margin: 4.5% 0;
+}
+
+#login-card-top {
+    width: 95%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-top-logo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#card-top-logo-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    height: 125%;
+    margin: 0 -4% 0 0;
+    object-fit: cover;
+}
+
+#card-top-logo-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#login-card-cen {
+    width: 95%;
+    height: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+#submit-btn {
+    width: 62.5%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0893B5;
+    color: white;
+    font-family: "arial";
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#submit-btn:hover {
+    cursor: pointer;
+}
+
+.login-input {
+    width: 62.5%;
+    height: 20%;
+    border: none;
+    outline: none;
+    background-color: rgba(245, 245, 245, 1.0);
+    text-align: center;
+    font-size: 26px;
+    font-family: "arial";
+    font-weight: 600;
+}
+
+#carname-inp {
+    margin: 5% 0 0 0;
+}
+
+#pin-inp {
+    margin: -2.5% 0 0 0;
+}
+
+#login-card-bot {
+    width: 95%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+#card-bot-txt {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: "Arial";
+    font-size: 16px;
+    color: rgba(30, 30, 30, 1.0);
+}
+
+#card-bot-link {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: "Arial";
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+    margin: 1% 0;
+}
+
+#card-bot-link:hover {
+    cursor: hand;
+}
+
+#logo-bot {
+    width: 55%;
+    height: 10%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: -5% 0;
+}
+
+.logo-bot-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22.5%;
+    height: 70%;
+    margin: 0 0 0 15%;
+}

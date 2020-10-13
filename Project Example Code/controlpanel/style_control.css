@@ -1,0 +1,203 @@
+#control-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+/* Controlmodules containers */
+
+.control-module {
+    width: 49.95%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+#control-module-1 {
+    border-right: 1px solid rgba(230, 230, 230, 1.0);
+    border-bottom: 1px solid rgba(230, 230, 230, 1.0);
+}
+
+#control-module-2 {
+    border-bottom: 1px solid rgba(230, 230, 230, 1.0);
+}
+
+#control-module-3 {
+    border-right: 1px solid rgba(230, 230, 230, 1.0);
+}
+
+#control-module-4 {
+
+}
+
+/* Controlmodules contents */
+
+/* Keyboard */
+.key-btn {
+    width: 15vh;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2%;
+    border: 3px solid #303030;
+    color: #00509e;
+    background-color: white;
+    font-size: 50px;
+    font-family: "Arial";
+    font-weight: 900;
+    margin: 0 0.2% 0.2% 0.2%;
+}
+
+.dragBox {
+  cursor: pointer;
+}
+
+.key-btn:hover {
+    cursor: pointer;
+}
+
+.key-btn-top {
+    width: 100%;
+    height: 49%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.key-btn-btm {
+    width: 100%;
+    height: 49%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Button */
+
+.btn-container {
+    width: 50vh;
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 1.0);
+    border-left: 1px solid rgba(240, 240, 240, 1.0);
+    border-bottom: 2px solid rgba(240, 240, 240, 1.0);
+    flex-flow: wrap;
+}
+
+.btn-title-con {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(230, 230, 230, 1.0);
+    cursor: pointer;
+}
+
+.btn-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Arial";
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0 2.5%;
+}
+
+.btn-box {
+    width: 50%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    width: 75%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Arial";
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+    background-color: #7AD661;
+    border-radius: 2px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+/* Chart */
+
+.chart-container {
+    width: 70vh;
+    height: 35vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 1.0);
+    border-left: 1px solid rgba(240, 240, 240, 1.0);
+    border-bottom: 2px solid rgba(240, 240, 240, 1.0);
+}
+
+/* Analog Write */
+
+
+
+/* LOADING ANIMATION */
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+}
+.lds-dual-ring:after {
+    position: relative;
+    top: 15%;
+    left: -275%;
+    content: " ";
+    display: block;
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    border: 7px solid #00C3EE;
+    border-color: #00C3EE transparent #00C3EE transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+#loading-txt {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(40, 40, 40, 1.0);
+    font-family: "arial";
+    font-weight: 100;
+    font-size: 20px;
+    position: relative;
+    top: -10%;
+    left: -22.5%;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

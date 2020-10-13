@@ -2,7 +2,7 @@ from socket import *
 import random
 import time
 
-HOST = "localhost"
+HOST = "192.168.0.146"
 PORT = 5678
 
 client_socket = None
