@@ -2,8 +2,8 @@ from socket import *
 import random
 import time
 
-HOST = "datakomm.work"
-PORT = 1301
+HOST = "localhost"
+PORT = 5678
 
 client_socket = None
 
@@ -40,15 +40,10 @@ def read_response_from_server():
     global client_socket
     try:
         response = client_socket.recv(1000)
-        return strip_newline(response.decode())
+        response_str = response.decode()
+        return response_str.replace('\n', ' ')
     except:
         return None
-
-def strip_newline(response):
-    for i in range(0, len(response + 1)):
-        if response[i] == "\n":
-            response[i] = " "
-    return response
 
 def run_client_test():
     print("TCP client Started")
@@ -68,7 +63,7 @@ def run_client_test():
 
     response = read_response_from_server()
     if response is None:
-        return "Error. Failed to Receive Response"
+        return "Error: Failed to Receive Response"
     print("Server Responeded with: " + response)
     
     seconds_to_sleep = 2 + random.randint(0, 5)
