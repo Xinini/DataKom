@@ -1,0 +1,31 @@
+På Raspberry Pi-en blir dere nødt til å installere Node.js også bruke NPM til å installere socket.io og andre nødvendige ekstra pakker.
+
+For å installere node kan dere skrive i konsollen til OS-et:
+
+sudo apt-get install nodejs
+
+sudo apt-get install npm
+
+ 
+
+Kommandoene når dere har installert node.js og NPM er som følgende (i konsoll igjen)
+
+npm i file-system
+
+npm i express
+
+npm i socket.io
+
+npm firebase-admin
+
+ 
+
+Etter dette skal dere ha alt dere trenger for å bruke serveren som følger med her og sette opp hele systemet.
+
+ 
+
+Dere må så ta i bruk apache eller nginx for å sette opp nettsiden. Apache følger med Raspberry Pi OS, nginx kan installeres ved følgende måte:
+
+sudo apt-get install nginx
+
+ 

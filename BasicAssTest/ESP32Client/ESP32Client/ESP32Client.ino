@@ -3,15 +3,16 @@
 
 SocketIoClient webSocket;
 
-const char * ssid = "NiniPhone";
-const char * password = "Damndude";
+const char * ssid = "Get-2G-DD0FF1";
+const char * password = "BH7DPBXU4U";
 
-const char * webServerHost = "192.168.43.109";
+const char * webServerHost = "192.168.0.146";
 int webServerPort = 3000;
 
-const int readPin = 2;
+const int readPin = 34;
 
 unsigned long lastMillis;
+
 void socketConnected(const char * payload, size_t length){
   Serial.println("Socket connection established");
 }
@@ -27,13 +28,15 @@ bool millisDelay(unsigned int delay){
   }
   
 
-void emitData(int pin){ //Bruk millis
-  if(millisDelay(100)){
-    int pinVal = analogRead(pin);
-    int * val = pinVal;
-    Serial.println(pinVal);
-    const char * message = pinVal;
-    webSocket.emit("pinVal", message);
+void emitData(int pin, int data){ //Bruk millis
+  if(millisDelay(1000)){
+    char buf_char[5]; //Length of pinVal + null
+    String message = String(data);
+    Serial.println(data);
+    Serial.println(message);
+    message.toCharArray(buf_char, 5);
+    Serial.println(buf_char);
+    webSocket.emit("pinVal", buf_char);
   }
 }
 void setup() {
@@ -57,5 +60,6 @@ void setup() {
 
 void loop() {
   webSocket.loop();
-  emitData(readPin);
+  Serial.println(analogRead(readPin));
+  emitData(readPin, analogRead(readPin));
 }
