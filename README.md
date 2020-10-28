@@ -3,7 +3,7 @@
 ## ToDoList
 
 ### Documentation
-
+g
 ### WebServer
 - Switch Mode
 - Timer
@@ -23,7 +23,7 @@
 
 - Time/Alarm Auto Mode (Modes are on server side)
 - Manual Mode
-- Button on ESP32 for light switch
+- Button on ESP32 for light switch (Switches mode)
 - Sensor Mode
 - Graph
 
