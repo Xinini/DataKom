@@ -1,5 +1,5 @@
 #Documentation
-Chose something basic becuause simplicity, but also wanted to show two way communication between client and server.
+Chose something basic becuause simplicity, but also wanted to show two way communication between client and server. <br>
 Did lamp with relay because show pratical application of the code
 Websockets because it's good for fast full dumplex communication
 Added extra features
