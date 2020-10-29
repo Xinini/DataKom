@@ -2,9 +2,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>House Control Panel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>HelloWorld</h1>
+    <div id="flex-container">
+        <div class="outer-card" id="control-panel">
+            <div class="inner-card" id="left">
+                <div id="mode-selector">
+                    <button class="button" id="alarm">Alarm</button>
+                    <button class="button" id="manual">Manual</button>
+                    <button class="button" id="sensor">Sensor</button>
+                </div>
+                <div id="alarm-settings">
+                    <input id="start-time" type="text" placeholder="StartTime"/>
+                    <input id="start-time" type="text" placeholder="StartTime"/>
+                    <button class="button" id="set-Time">Set</button>
+                </div>
+                <div id="current-data">
+                    <p id="value">Current value: </p>
+                    <p id="state">Current state: </p>
+                    <p id="mode">Current mode: </p>
+                </div>
+            </div>
+            <div class="inner-card" id="right">
+
+                <button class="button" id="on-off" onclick="onOff()">ON/OFF</button>
+
+            </div>
+        </div>
+        <div class="outer-card" id="graph">
+            <div>
+                <canvas id="light-chart" width="100%" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

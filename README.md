@@ -3,7 +3,6 @@
 ## ToDoList
 
 ### Documentation
-g
 ### WebServer
 - Switch Mode
 - Timer

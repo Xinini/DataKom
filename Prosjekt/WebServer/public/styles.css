@@ -1,0 +1,95 @@
+body{
+    background-color: #161616;
+}
+.outer-card{
+    padding: 0vh;
+    margin: 5vh;
+    background-color: #8a8989e0;
+    border-radius: 1vh;
+    height: 38vh;
+    width: 90vw;
+    box-sizing: border-box;
+}
+
+.inner-card{
+    margin: 1vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    padding: 5vh;
+    padding-top: 7vh;
+    background-color: #5e5e5ec4;
+    width: 40vw;
+    box-sizing: border-box;
+}
+
+.button{
+    background-color: #080808d2;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 1em;
+    color: #ffffffd2;
+    box-sizing: border-box;
+}
+.button:hover{
+    background-color: #080808;
+}
+.button:active{
+    background-color: #bbbbbb;
+}
+
+#flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#control-panel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#mode-selector{
+    display: flex;
+    justify-content: space-evenly;
+}
+#alarm-settings{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+#right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+#on-off{
+    width: 35vw;
+    height: 20vh;
+    font-size: 2em;
+}
+#alarm{
+    height: 5vh;
+    width: 10vw;
+}
+#manual{
+    height: 5vh;
+    width: 10vw;
+}
+#sensor{
+    height: 5vh;
+    width: 10vw;
+}
+input{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    width: 10vw;
+}
