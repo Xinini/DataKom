@@ -1,16 +1,37 @@
 const socket = io.connect("http://localhost:4000", {secure: false});
 
+socket.emit("getStartData");
+
+
 function onOff(){
     socket.emit("toggleLight");
 }
 
-socket.on("lightOn", function(){
-    document.getElementById("state").innerHTML = "Current state: ON"
-})
+function chooseMode(mode){
+    socket.emit("chooseMode", mode);
+}
 
-socket.on("lightOff", function(){
-    document.getElementById("state").innerHTML = "Current state: OFF"
-})
+socket.on("modeUpdate", (mode)=>{
+    document.getElementById("mode").innerHTML = "Current mode: " + mode
+});
+
+function setTime(){
+    var start = document.getElementById("start-time").value;
+    var end = document.getElementById("end-time").value;
+    socket.emit("setTime", {
+        start: start,
+        end, end
+    });
+
+}
+
+socket.on("lightUpdate", (state)=>{
+    if(state == 1){
+        document.getElementById("state").innerHTML = "Current state: ON";
+    } else if(state == 0){
+        document.getElementById("state").innerHTML = "Current state: OFF";
+    }
+});
 
 
 

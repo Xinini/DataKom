@@ -12,14 +12,14 @@
         <div class="outer-card" id="control-panel">
             <div class="inner-card" id="left">
                 <div id="mode-selector">
-                    <button class="button" id="alarm">Alarm</button>
-                    <button class="button" id="manual">Manual</button>
-                    <button class="button" id="sensor">Sensor</button>
+                    <button class="button" id="alarm"  onclick="chooseMode(0)">Alarm</button>
+                    <button class="button" id="manual" onclick="chooseMode(1)">Manual</button>
+                    <button class="button" id="sensor" onclick="chooseMode(2)">Sensor</button>
                 </div>
                 <div id="alarm-settings">
-                    <input id="start-time" type="text" placeholder="StartTime"/>
-                    <input id="start-time" type="text" placeholder="StartTime"/>
-                    <button class="button" id="set-Time">Set</button>
+                    <input id="start-time" type="text" placeholder="start-time"/>
+                    <input id="end-time" type="text" placeholder="end-time"/>
+                    <button class="button" id="set-Time" onclick="setTime()">Set</button>
                 </div>
                 <div id="current-data">
                     <p id="value">Current value: </p>
