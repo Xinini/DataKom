@@ -29,11 +29,12 @@ io.on('connection', (socket) =>{
         socket.emit("modeUpdate", mode);
         socket.emit("lightUpdate", state);
     });
+    
     socket.on("toggleLight", ()=>{
         mode = modes[1];
         state = !state;
         console.log("ToggledLight");
-        socket.emit("lightUpdate", state);
+        io.emit("lightUpdate", state);
     });
     socket.on("chooseMode", (modeIndex)=>{
         mode = modes[modeIndex];
