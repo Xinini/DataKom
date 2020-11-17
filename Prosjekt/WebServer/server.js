@@ -47,5 +47,12 @@ io.on('connection', (socket) =>{
         console.log(end);
     });
 
-
+    socket.on("newSensorData", (sensorData) =>{
+        console.log(sensorData);
+    });
+    setInterval(() => {
+        console.log("yay");
+        io.emit("getSensorData");
+    },
+    2000);
 });

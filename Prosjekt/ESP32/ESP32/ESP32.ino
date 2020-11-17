@@ -7,21 +7,52 @@ const char * ssid = "Get-2G-DD0FF1";
 const char * password = "BH7DPBXU4U";
 
 const char * webServerHost = "192.168.0.111";
-int webServerPort = 3000;
+int webServerPort = 4000;
 
+const int lampPin = 33;
+// const int buttonPin;
+const int sensorPin = 34; //photoresistor
+
+
+void lightUpdate(const char * data, size_t length) {
+  String dataString = String(data);
+  if(dataString == String("true")){
+    digitalWrite(lampPin, 1);
+  } 
+  else if (dataString == String("false")){
+    digitalWrite(lampPin, 0);    
+  }
+}
+
+void sendSensorData(const char * data, size_t length) {
+  int sensorDataRaw = analogRead(sensorPin);
+  char buf_sData[5];
+  String message = String(sensorDataRaw);
+  message.toCharArray(buf_sData, 5);
+  webSocket.emit("newSensorData", buf_sData);
+}
 
 void setup() {
   Serial.begin(115200);
   WiFi.begin(ssid, password);
-  while(WiFi.status() != WL_CONNECTED){
+  while (WiFi.status() != WL_CONNECTED) {
     Serial.println("Establishing connection...");
     delay(1000);
   }
   Serial.println("Connected");
   Serial.println(WiFi.localIP());
+
+  pinMode(lampPin, OUTPUT);
+  //pinMode(buttonPin, INPUT);
+  pinMode(sensorPin, INPUT);
+
+  webSocket.on("lightUpdate", lightUpdate);
+  webSocket.on("getSensorData", sendSensorData);
+
+  webSocket.begin(webServerHost, webServerPort);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  webSocket.loop();
 
 }
