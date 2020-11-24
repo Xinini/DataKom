@@ -16,12 +16,8 @@ const int sensorPin = 34; //photoresistor
 
 void lightUpdate(const char * data, size_t length) {
   String dataString = String(data);
-  if(dataString == String("true")){
-    digitalWrite(lampPin, 1);
-  } 
-  else if (dataString == String("false")){
-    digitalWrite(lampPin, 0);    
-  }
+  int dataInt = dataString.toInt();
+  digitalWrite(lampPin, dataInt);
 }
 
 void sendSensorData(const char * data, size_t length) {
