@@ -11,3 +11,4 @@
 - Vertical design, because flexible with phone
 - Fuksjonel, ikke krav å være estetisk 
 - Varmere farger for darkmode
+- bool to int for state
