@@ -6,7 +6,7 @@ SocketIoClient webSocket;
 const char * ssid = "Get-2G-DD0FF1";
 const char * password = "BH7DPBXU4U";
 
-const char * webServerHost = "192.168.0.111";
+const char * webServerHost = "192.168.0.146";
 int webServerPort = 4000;
 
 const int lampPin = 33;
