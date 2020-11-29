@@ -1,4 +1,4 @@
-const socket = io.connect("http://192.168.0.111:4000", {secure: false});
+const socket = io.connect("http://192.168.0.146:4000", {secure: false});
 
 var xLabels = [];
 var lightValues = [];
