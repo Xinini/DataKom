@@ -13,12 +13,15 @@ app.use(express.static('public'));
 var io = require('socket.io').listen(server);
 
 var state = 0;
-var modes = ["alarm", "manual", "sensor"];
+var modes = ["alarm", "manual"];
 var mode = modes[1]; //Default is manual
+var sensorInterval = 10; //in seconds
+var alarmInterval = 60; //in seconds
 
 var start = 0000;
 var end = 0001;
 
+var chartData = {};
 
 io.on('connection', (socket) =>{
     console.log('Client Connected');
@@ -31,6 +34,7 @@ io.on('connection', (socket) =>{
         console.log("dataReq0");
         socket.emit("modeUpdate", mode);
         socket.emit("lightUpdate", state);
+        io.emit("newChartData", chartData);
     });
     
     socket.on("toggleLight", ()=>{
@@ -38,6 +42,7 @@ io.on('connection', (socket) =>{
         state = 1 - state; //Toggles betwewen 0 and 1
         console.log("ToggledLight");
         io.emit("lightUpdate", state);
+        socket.emit("modeUpdate", mode);
     });
     socket.on("chooseMode", (modeIndex)=>{
         mode = modes[modeIndex];
@@ -52,6 +57,11 @@ io.on('connection', (socket) =>{
 
     socket.on("newSensorData", (sensorData) =>{
         console.log(sensorData);
+        
+        chartData[getCurrentTime()] = sensorData; 
+        //If interval is lower than 60 seconds, same key and no new item in object
+        limitChartData(5);
+        io.emit("newChartData", chartData);
     });
 });
 
@@ -59,14 +69,14 @@ io.on('connection', (socket) =>{
 setInterval(() => {
     io.emit("getSensorData");
 },
-10000);
+sensorInterval*1000);
 
 setInterval(()=>{
     if(mode == modes[0]){
         alarm();
     }
 },
-30*1000);
+alarmInterval*1000);
 
 function alarm(){
     console.log(start + "start");
@@ -82,7 +92,7 @@ function alarm(){
     }
 }
 
-function getCurrentTime(){ //Function for getting current time in correct format
+function getCurrentTime(){ //Function for getting current time in correct format HHMM
     let date_ob = new Date(); 
     let currHour = date_ob.getHours().toString();
     let currMin = date_ob.getMinutes().toString();
@@ -93,4 +103,10 @@ function getCurrentTime(){ //Function for getting current time in correct format
         currMin = "0" + currMin;
     }
     return currHour + currMin;
+}
+
+function limitChartData(limit){
+    if (Object.keys(chartData).length >= limit + 1){ // 96 quarters is one day
+        delete chartData[Object.keys(chartData)[0]]; //Gets the first key and deletes it
+    }
 }
