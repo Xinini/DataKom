@@ -2,7 +2,7 @@ var express = require('express');
 var http = require('http');
 var app = express();
 
-var PORT = 4000;
+var PORT = 4000; //Port you want used for this server
 
 var server = app.listen(PORT, ()=>{
     console.log("Listening on port: *" + PORT);
@@ -15,12 +15,13 @@ var io = require('socket.io').listen(server);
 var state = 0;
 var modes = ["alarm", "manual"];
 var mode = modes[1]; //Default is manual
-var sensorInterval = 10; //in seconds
+var sensorInterval = 60*15; //in seconds //get new data every 15min
 var alarmInterval = 60; //in seconds
 
 var start = 0000;
 var end = 0001;
 
+var chartLimit = 48; //48 for 12 hours
 var chartData = {};
 
 io.on('connection', (socket) =>{
@@ -60,7 +61,7 @@ io.on('connection', (socket) =>{
         
         chartData[getCurrentTime()] = sensorData; 
         //If interval is lower than 60 seconds, same key and no new item in object
-        limitChartData(5);
+        limitChartData(chartLimit);
         io.emit("newChartData", chartData);
     });
 });
